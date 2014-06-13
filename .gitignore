@@ -6,3 +6,4 @@
 */.bower-registry/*
 */.bower-tmp/*
 src/lib/*
+src/scripts/bundle.js
