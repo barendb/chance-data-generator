@@ -16,7 +16,7 @@ TODO
 
 - Add progress bar during data generation
 - Fix button state during data generation
-- Enable chance properties
+- ~~Enable chance properties~~
 - Allow user to save output generation template in local storage, and recall on demand
 - Allow user to import output generation template
 - Add additional export types such as CSV, XML

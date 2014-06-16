@@ -9,7 +9,7 @@ angular.module('app').controller('GridController', ['$scope', '$log', 'PubSub',
 
         $scope.addColumn = function() {
 
-        	$log.debug('add column');
+            $log.debug('add column');
 
             var column = $scope.gridModel.length + 1;
 
@@ -45,16 +45,16 @@ angular.module('app').controller('GridController', ['$scope', '$log', 'PubSub',
             $scope.addColumn();
         };
 
-         PubSub.subscribe('GenerateRequest', function(rows) {
+        PubSub.subscribe('GenerateRequest', function(rows) {
 
-         	$log.debug('PubSub.GenerateRequest', rows);
+            $log.debug('PubSub.GenerateRequest', rows);
 
-         	PubSub.publish('Generate', [{
-         		template: $scope.gridModel,
-         		rows: rows.rows
-         	}]);
+            PubSub.publish('Generate', [{
+                template: $scope.gridModel,
+                rows: rows.rows
+            }]);
 
-         });
+        });
 
         $scope.init();
     }
