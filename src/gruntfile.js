@@ -6,7 +6,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         concat: {
             dist: {
-                src: ['lib/angular/angular.js', 'lib/chance/chance.js', 'lib/lodash/dist/lodash.js'],
+                src: ['lib/angular/angular.js', 'lib/chance/chance.js', 'lib/lodash/dist/lodash.js', 'lib/ngstorage/ngstorage.js'],
                 dest: 'scripts/bundle.js',
             },
         },

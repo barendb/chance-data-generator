@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('app').controller('GridController', ['$scope', '$log', 'PubSub',
+angular.module('app').controller('GridController', ['$scope', '$log', 'TemplateHandler', 'PubSub',
 
-    function($scope, $log, PubSub) {
+    function($scope, $log, TemplateHandler, PubSub) {
         $scope.internal = {};
         $scope.gridModel = [];
         $scope.test = 'test';
@@ -55,6 +55,16 @@ angular.module('app').controller('GridController', ['$scope', '$log', 'PubSub',
             }]);
 
         });
+
+        PubSub.subscribe('Template::Load', function(template) {
+            $scope.gridModel = template;
+        });
+
+        PubSub.subscribe('Template::Save', function(name) {
+            TemplateHandler.save(name, $scope.gridModel);
+            PubSub.subscribe('Template::Update', [{}]);
+        });
+
 
         $scope.init();
     }

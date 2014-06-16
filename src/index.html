@@ -39,11 +39,38 @@
                 <p>
                     At the hart of this project is the fabulous <a href="https://github.com/victorquinn/chancejs">Chance.js</a> library written by Victor Quinn and Contributors.
                 </p>
+                <p></p>
+                <p></p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div data-ng-controller="TemplatesController">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-4">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="data model name" data-ng-model="name">
+                        <span class="input-group-btn">
+                            <button class="btn btn-success" type="button" data-ng-click='save()'>Save</button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="input-group">
+                        <select class="form-control" data-ng-model="selectedTemplate" data-ng-disabled="templates.length == 0">
+                            <option data-ng-repeat="template in templates">{{template}}</option>
+                        </select>
+                        <span class="input-group-btn">
+                            <button class="btn btn-success" type="button" data-ng-click='load()' data-ng-disabled="templates.length == 0">Load</button>
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="row">
             <div class="col-lg-12">
+
                 <table class="table table-striped" data-ng-controller="GridController">
                     <thead>
                         <tr>
@@ -59,13 +86,13 @@
                         <tr data-ng-repeat="column in gridModel">
                             <td>{{column.column}}</td>
                             <td>
-                                <input type="text" data-ng-model="column.name" />
+                                <input type="text" class="form-control" data-ng-model="column.name" />
                             </td>
                             <td>
                                 <type-select ng-model="column.type"></type-select>
                             </td>
                             <td>
-                                <input type="text" data-ng-model="column.properties" />
+                                <input type="text" class="form-control" data-ng-model="column.properties" />
                             </td>
                             <td>
                                 <span chance-output="column.type" chance-properties="column.properties"></span>
@@ -77,7 +104,9 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="6"><button type="button" class="btn btn-danger btn-xs" data-ng-click="addColumn()">Add column</button></td>
+                            <td colspan="6">
+                                <button type="button" class="btn btn-danger btn-xs" data-ng-click="addColumn()">Add column</button>
+                            </td>
                         </tr>
                     </tfoot>
                 </table>
@@ -113,7 +142,7 @@
         </div>
 
         <div class="footer">
-            <p>©Barend Bootha  2014</p>
+            <p>©Barend Bootha 2014</p>
         </div>
 
     </div>
@@ -124,11 +153,13 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/services/pubsub.js"></script>
     <script src="scripts/services/chancetypes.js"></script>
+    <script src="scripts/services/templatehandler.js"></script>
     <script src="scripts/directives/typeselect.js"></script>
     <script src="scripts/directives/chanceoutput.js"></script>
     <script src="scripts/controllers/grid.js"></script>
     <script src="scripts/controllers/output.js"></script>
     <script src="scripts/controllers/generate.js"></script>
+    <script src="scripts/controllers/templates.js"></script>
     <script src="scripts/init.js"></script>
 </body>
 
