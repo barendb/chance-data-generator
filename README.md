@@ -3,7 +3,7 @@ Chance Data Generator
 
 This tool allows you to generate random test data for a single document [table] at a time.
 
-At the hart of this project is the fabulous [Chance.js](https://github.com/victorquinn/chancejs) library written by Victor Quinn and Contributors.
+At the heart of this project is the fabulous [Chance.js](https://github.com/victorquinn/chancejs) library written by Victor Quinn and Contributors.
 
 Version
 ----
