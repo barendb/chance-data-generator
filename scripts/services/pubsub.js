@@ -5,7 +5,7 @@ angular.module('app').factory('PubSub', function() {
     return {
         publish: function(topic, args) {
             if (cache[topic]) {
-                _.each(cache[topic], function(message) {
+                angular.forEach(cache[topic], function(message) {
                     message.apply(null, args || []);
                 });
             }

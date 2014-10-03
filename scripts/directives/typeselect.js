@@ -11,7 +11,7 @@ angular.module('app').directive('typeSelect', ['ChanceTypes',
             controller: function($scope) {
                 $scope.types = ChanceTypes;
             },
-            template: '<select ng-model="model">' +
+            template: '<select ng-model="model" class="form-control">' +
                 '<optgroup ng-repeat="ftype in types" label="{{ftype.typeName}}">' +
                     '<option ng-repeat="dtype in ftype.types">{{dtype}}</option>' +
                 '</optgroup>' +

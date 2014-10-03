@@ -13,12 +13,13 @@ angular.module('app').controller('OutputController', ['$scope', '$log', 'PubSub'
         $scope.internal.generateRow = function(template, row) {
 
             _.each(template, function(column) {
-                row[$scope.internal.cleanColumnName(column.name)] = eval('chance.' + column.type + '()');
+                row[$scope.internal.cleanColumnName(column.name)] = eval('chance.' + column.type + '(' + column.properties + ')');
             });
 
         };
 
         $scope.internal.generate = function(data) {
+
 
             $log.debug('PubSub.Generate', data);
 
